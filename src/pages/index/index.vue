@@ -40,6 +40,10 @@
       </view>
     </view>
     <Keyboard v-model="showKeyboard" @input="onInput" @inputFun="onInputFun"/>
+    <view v-if="historyList.length == 0" class="content_info">
+      <view>课程加权平均分=( ∑(课程成绩*该课程学分) )/( ∑课程学分 )</view>
+      <view>扣分=课程加权平均分*(1-实修学分/最低要求学分数)</view>
+    </view>
     <view v-if="historyList.length > 5" class="content_bottom line" @click="onClearHistory">合理使用工具以免不必要的浪费</view>
     <view v-if="historyList.length > 5" class="content_bottom dark" @click="">理想常在 不忘星辰</view>
   </view>
@@ -441,6 +445,9 @@ const onScroll = (e) => {
           display: flex;
           align-items: center;
           justify-content: center;
+          &:after {
+            background: var( --inputBgColor );
+          }
           &:empty:after {
             content: attr(data-attr);
             color: var( --inputEmptyTextColor );
@@ -498,6 +505,16 @@ const onScroll = (e) => {
         color: var(--subTextColor);
       }
     }
+  }
+  .content_info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 12px;
+    color: var(--infoTextColor);
   }
   .content_bottom {
     flex-grow: 1;

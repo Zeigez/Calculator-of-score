@@ -35,6 +35,7 @@ page {
   --keyBoardConfirmDownColor: #614479;
   --detailBgColor: #FFFFFF;
   --detailTextColor: #9892C2;
+  --infoTextColor: rgba(164, 164, 164, 0.6);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,6 +60,7 @@ page {
     --keyBoardConfirmDownColor: #3A234B;
     --detailBgColor: #292929;
     --detailTextColor: #9892C2;
+    infoTextColor: rgba(82, 82, 82, 0.6);
   }
 }
 @font-face {
